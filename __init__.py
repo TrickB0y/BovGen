@@ -29,5 +29,8 @@ def create_app(test_config=None):
     from . import menu
     app.register_blueprint(menu.bp)
     
+    from . import racas
+    app.register_blueprint(racas.bp)
+    
     
     return app
