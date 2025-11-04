@@ -37,11 +37,13 @@ def init_db_command():
     click.echo('Database inicializada.')
     
 @click.command('add-user')
-def addUser():
-    login = input("login do usuario: ")
-    password = input("senha do usuario: ")
-    error = None
-    
+@click.argument('login', nargs = 1, required=False)
+@click.argument('password', nargs = 1, required=False)
+def addUser(login: str, password: str):
+    if login is None or password is None:
+        login = input("login do usuario: ")
+        password = input("senha do usuario: ")
+        
     db = get_db()
     try:
         db.execute(
@@ -53,8 +55,8 @@ def addUser():
         print(f"O Login {login} já esta cadastrado.")
     else:
         print("novo usuario adicionado.")
-    
-    
+        
+        
     
 sqlite3.register_converter(
     "timestamp", lambda v: datetime.fromisoformat(v.decode())
