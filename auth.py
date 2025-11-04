@@ -11,11 +11,11 @@ from BovGen.db import get_db # type: ignore
 
 bp = Blueprint('auth', __name__, url_prefix='/auth')
 
-@bp.route('login', methods=("GET", "POST"))
+@bp.route('/login', methods=("GET", "POST"))
 def login():
     if request.method == "POST":
         login = request.form["login"]
-        password = request.form["senha"]
+        password = request.form["password"]
         db = get_db()
         error = None
         
