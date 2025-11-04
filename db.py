@@ -4,6 +4,8 @@ from datetime import datetime
 import click
 from flask import current_app, g
 
+from werkzeug.security import generate_password_hash
+
 def get_db():
     if 'db' not in g:
         g.db = sqlite3.connect(
@@ -34,6 +36,25 @@ def init_db_command():
     init_db()
     click.echo('Database inicializada.')
     
+@click.command('add-user')
+def addUser():
+    login = input("login do usuario: ")
+    password = input("senha do usuario: ")
+    error = None
+    
+    db = get_db()
+    try:
+        db.execute(
+            "INSERT INTO Users (login, password) VALUES (?, ?)",
+            (login, generate_password_hash(password)),
+        )
+        db.commit()
+    except db.IntegrityError:
+        print(f"O Login {login} já esta cadastrado.")
+    else:
+        print("novo usuario adicionado.")
+    
+    
     
 sqlite3.register_converter(
     "timestamp", lambda v: datetime.fromisoformat(v.decode())
@@ -43,3 +64,4 @@ sqlite3.register_converter(
 def init_app(app):
     app.teardown_appcontext(close_db)
     app.cli.add_command(init_db_command)
+    app.cli.add_command(addUser)
