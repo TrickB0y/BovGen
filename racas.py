@@ -5,4 +5,9 @@ from flask import (
 from BovGen.auth import login_required # type: ignore
 from BovGen.db import get_db # type: ignore
 
-bp = Blueprint("racas", __name__, url_prefix= "/")
+bp = Blueprint("racas", __name__, url_prefix= "/racas")
+
+@bp.route("/add")
+@login_required
+def add():
+    return render_template("app/racas/add.html")
