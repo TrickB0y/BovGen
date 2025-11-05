@@ -42,4 +42,4 @@ def view():
     racas = db.execute(
         "SELECT * FROM Racas"
     ).fetchall()
-    return render_template("app/racas/view.html", racas)
+    return render_template("app/racas/view.html", racas=racas)
