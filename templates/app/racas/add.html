@@ -11,5 +11,11 @@
         <input id="raca-name" name="name" type="text">
         <input type="submit" value="Adicionar Raça">
     </form>
+    
+    <div class="flash-messages">
+    {% for message in get_flashed_messages() %}
+        <div class="flash">{{ message }}</div>
+    {% endfor %}
+    </div>
 </body>
 </html>
