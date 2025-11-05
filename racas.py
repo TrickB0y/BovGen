@@ -45,7 +45,34 @@ def view():
     return render_template("app/racas/view.html", racas=racas)
 
 
-@bp.route("/edit", methods=("GET", "POST"))
+@bp.route("/edit/<int:id>", methods=("GET", "POST"))
 @login_required
-def edit():
-    return render_template("app/racas/edit.html")
+def edit(id):
+    db = get_db()
+    error = None
+    raca = db.execute(
+        "SELECT * FROM Racas WHERE id = ?",
+        (id,)
+    ).fetchone()
+    if raca is None:
+        return "Raça não encontrada"
+    if request.method == "POST":
+        name = request.form["name"]
+        
+        if name is None:
+            error = "A raça precisa ter nome."
+        
+        if error is None:
+            try:
+                db.execute(
+                    "UPDATE Racas SET name = ? WHERE id = ?",
+                    (name,id)
+                )
+                db.commit()
+            except db.IntegrityError:
+                error = "A raça já existe."
+            else:
+                return redirect(url_for('menu.index'))
+    
+        flash(error)
+    return render_template("app/racas/edit.html", raca=raca)
