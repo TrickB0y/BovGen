@@ -43,3 +43,9 @@ def view():
         "SELECT * FROM Racas"
     ).fetchall()
     return render_template("app/racas/view.html", racas=racas)
+
+
+@bp.route("/edit", methods=("GET", "POST"))
+@login_required
+def edit():
+    return render_template("app/racas/edit.html")
