@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ver raças</title>
+</head>
+<body>
+    <a href="{{ url_for('menu.index') }}">Voltar</a>
+    <br>
+    {% for raca in racas %}
+    <div>
+        <h3>{{ raca['name'] }}</h3>
+    </div>
+    <br><br>
+    {% endfor %}
+</body>
+</html>
