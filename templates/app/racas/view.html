@@ -12,6 +12,7 @@
     <div>
         <h4>ID: {{ raca['id'] }}</h4>
         <h4>Nome: {{ raca['name'] }}</h4>
+        <a href="{{ url_for('racas.edit', id = raca['id']) }}">Editar</a>
     </div>
     <br>
     {% endfor %}
