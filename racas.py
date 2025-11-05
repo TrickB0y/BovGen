@@ -37,4 +37,9 @@ def add():
 @bp.route("/view", methods=("GET",))
 @login_required
 def view():
-    return render_template("app/racas/view.html")
+    db = get_db()
+
+    racas = db.execute(
+        "SELECT * FROM Racas"
+    ).fetchall()
+    return render_template("app/racas/view.html", racas)
