@@ -7,13 +7,13 @@
 </head>
 <body>
     <a href="{{ url_for('menu.index') }}">Voltar</a>
-    <br>
+    <br><br>
     {% for raca in racas %}
     <div>
-        <h3>ID: {{ raca['id'] }}</h3>
-        <h3>Nome: {{ raca['name'] }}</h3>
+        <h4>ID: {{ raca['id'] }}</h4>
+        <h4>Nome: {{ raca['name'] }}</h4>
     </div>
-    <br><br>
+    <br>
     {% endfor %}
 </body>
 </html>
