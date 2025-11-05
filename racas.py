@@ -32,3 +32,9 @@ def add():
     
         flash(error)
     return render_template("app/racas/add.html")
+
+
+@bp.route("/view", methods=("GET",))
+@login_required
+def view():
+    return render_template("app/racas/view.html")
