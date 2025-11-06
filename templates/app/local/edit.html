@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Local</title>
+</head>
+<body>
+    <a href="{{ url_for('menu.index') }}">Voltar</a>
+    <br><br>
+    <form method="post">
+        <label for="local-name">Nome da fazenda</label>
+        <input value="{{ local['nome_fazenda'] }}" id="local-name" name="nome_fazenda" type="text">
+        <br>
+        <label for="local-estado">Estado</label>
+        <input value="{{ local['estado'] }}" id="local-estado" name="estado" type="text">
+        <br>
+        <label for="local-cidade">Cidade</label>
+        <input value="{{ local['cidade'] }}" id="local-cidade" name="cidade" type="text">
+        <br>
+        <label for="local-propietario">Nome do propietario</label>
+        <input value="{{ local['propietario'] }}" id="local-propietario" name="propietario" type="text">
+        <br>
+        <br><br>
+        <input type="submit" value="Adicionar Local">
+    </form>
+    <br><br>
+    <div class="flash-messages">
+    {% for message in get_flashed_messages() %}
+        <div class="flash">{{ message }}</div>
+    {% endfor %}
+    </div>
+</body>
+</html>
