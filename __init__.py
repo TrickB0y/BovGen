@@ -32,5 +32,7 @@ def create_app(test_config=None):
     from . import racas
     app.register_blueprint(racas.bp)
     
+    from . import local
+    app.register_blueprint(local.bp)
     
     return app
