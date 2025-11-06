@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ver todos os animais</title>
+</head>
+<body>
+    <a href="{{ url_for('menu.index') }}">Voltar</a>
+    <br><br><br><br>
+    {% for animal in animais %}
+    <div>
+        <h4>ID: {{ animal['id'] }}</h4>
+        <h4>Nome: {{ animal['nome'] }}</h4>
+        <h4>Raça: {{ animal['raca'] }}</h4>
+        <a href="{{ url_for('animais.view', id = animal['id']) }}">Ver detalhes</a>
+    </div>
+    <br><br>
+    {% endfor %}
+</body>
+</html>
