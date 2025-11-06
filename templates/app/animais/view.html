@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ver animal</title>
+</head>
+<body>
+    <a href="{{ url_for('menu.index') }}">Voltar</a>
+    <br><br><br><br>
+    <h2>ID: {{ animal['id'] }}</h2>
+    <h4>RGD: {{ animal['rgd'] }}</h4>
+    <h4>Raça: {% if raca is none %} Não informada {% else %} {{ raca['name'] }} {% endif %}</h4>
+    <h4>Nome: {{ animal['nome'] }}</h4>
+    <h4>Sexo: {{ animal['sexo'] }}</h4>
+    <h4>Categoria: {{ animal['categoria'] }}</h4>
+    <h4>Nascimento: {{ animal['nascimento'] }}</h4>
+    <h4>Localidade:{% if local is none %} Não informada {% else %} <a href="">ID: {{ local['id'] }} | Nome: {{ local['nome_fazenda'] }}</a> {% endif %}</h4>
+    <h4>Pai: {% if pai is none %} Não informado {% else %} <a href="{{ url_for('animais.view', id=pai['id']) }}">ID: {{ pai['id'] }} | Nome: {{ pai['nome'] }}</a> {% endif %}</h4>
+    <h4>Mãe: {% if mae is none %} Não informada {% else %} <a href="{{ url_for('animais.view', id=mae['id']) }}">ID: {{ mae['id'] }} | Nome: {{ mae['nome'] }}</a> {% endif %}</h4></h4>
+    <br><br>
+    <a href="{{ url_for('animais.edit', id=animal['id']) }}">Editar animal</a>
+</body>
+</html>
