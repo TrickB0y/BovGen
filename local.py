@@ -77,11 +77,11 @@ def edit(id):
         
         if nome_fazenda is None:
             error = "A fazenda precisa ter nome."
-        if estado is None:
+        elif estado is None:
             error = "O estado precisa ser informado."
-        if cidade is None:
+        elif cidade is None:
             error = "A cidade precisa ser informado."
-        if propietario is None:
+        elif propietario is None:
             error = "O propietario precisa ser informado."
         
         if error is None:
