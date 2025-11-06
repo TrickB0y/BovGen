@@ -34,5 +34,8 @@ def create_app(test_config=None):
     
     from . import local
     app.register_blueprint(local.bp)
+
+    from . import animais
+    app.register_blueprint(animais.bp)
     
     return app
