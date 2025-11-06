@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Novo Local</title>
+</head>
+<body>
+    <a href="{{ url_for('menu.index') }}">Voltar</a>
+    <br><br>
+    <form method="post">
+        <label for="fazenda-name">Nome da fazenda</label>
+        <input id="fazenda-name" name="name" type="text">
+        <br>
+        <label for="fazenda-estado">Estado</label>
+        <input id="fazenda-estado" name="estado" type="text">
+        <br>
+        <label for="fazenda-cidade">Cidade</label>
+        <input id="fazenda-cidade" name="cidade" type="text">
+        <br>
+        <label for="fazenda-propietario">Nome do propietario</label>
+        <input id="fazenda-propietario" name="propietario" type="text">
+        <br>
+        <br><br>
+        <input type="submit" value="Adicionar Raça">
+    </form>
+    <br><br>
+    <div class="flash-messages">
+    {% for message in get_flashed_messages() %}
+        <div class="flash">{{ message }}</div>
+    {% endfor %}
+    </div>
+</body>
+</html>
