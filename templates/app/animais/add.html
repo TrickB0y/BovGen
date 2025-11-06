@@ -20,14 +20,14 @@
             {% endfor %}
         </select>
         <br>
-        <label for="animal-name">Nome do animal</label>
-        <input id="animal-name" name="name" type="text">
+        <label for="animal-nome">Nome do animal</label>
+        <input id="animal-nome" name="nome" type="text">
         <br>
         <label for="animal-sexo">Sexo do animal</label>
         <select name="sexo" id="animal-sexo" size="1">
             <option value="">Não selecionado</option>
             <option value="MASCULINO">MASCULINO</option>
-            <option value="FEMÊA">FEMÊA</option>
+            <option value="FEMININO">FEMÊA</option>
         </select>
         <br>
         <label for="animal-categoria">Categoria do animal</label>
@@ -37,27 +37,26 @@
         <input id="animal-nascimento" name="nascimento" type="text">
         <br>
         <label for="animal-localidade">Localidade do animal</label>
-        <select name="localidade" id="animal-localidade" size="1">
+        <select name="local" id="animal-localidade" size="1">
             <option value="">Não selecionado</option>
-            <!--
             {% for local in localidades %}
-            <option value="{{}}">MASCULINO</option>
+            <option value="{{ local['id'] }}">ID: {{ local['id'] }} | {{ local['nome_fazenda'] }}</option>
             {% endfor %}
-            -->
         </select>
         <br>
         <label for="animal-pai">Pai do animal</label>
         <select name="pai" id="animal-pai" size="1">
             <option value="">Não selecionado</option>
             {% for macho in machos %}
-            <option value="{{ macho['id'] }}">{{ macho['name'] }}</option>
+            <option value="{{ macho['id'] }}">ID: {{ macho['id'] }} | Nome: {{ macho['nome'] }}</option>
             {% endfor %}
         </select>
         <br>
+        <label for="animal-mae">Mãe do animal</label>
         <select name="mae" id="animal-mae" size="1">
             <option value="">Não selecionado</option>
             {% for femea in femeas %}
-            <option value="{{ femea['id'] }}">{{ femea['name'] }}</option>
+            <option value="{{ femea['id'] }}">ID: {{ femea['id'] }} | Nome: {{ femea['nome'] }}</option>
             {% endfor %}
         </select>
         <br><br>
