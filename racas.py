@@ -34,15 +34,28 @@ def add():
     return render_template("app/racas/add.html")
 
 
-@bp.route("/view", methods=("GET",))
+@bp.route("/all", methods=("GET",))
 @login_required
-def view():
+def all():
     db = get_db()
 
     racas = db.execute(
         "SELECT * FROM Racas"
     ).fetchall()
-    return render_template("app/racas/view.html", racas=racas)
+    return render_template("app/racas/all.html", racas=racas)
+
+
+@bp.route("/view/<int:id>", methods=("GET",))
+@login_required
+def view(id):
+    db = get_db()
+    raca = db.execute(
+        "SELECT * FROM Racas WHERE id = ?",
+        (id,)
+    ).fetchone()
+    if raca is None:
+        return "Raça não encontrada."
+    return render_template("app/racas/view.html", raca=raca)
 
 
 @bp.route("/edit/<int:id>", methods=("GET", "POST"))
