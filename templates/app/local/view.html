@@ -3,21 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ver localidades</title>
+    <title>Ver local</title>
 </head>
 <body>
-    <a href="{{ url_for('menu.index') }}">Voltar</a>
+    <a href="{{ url_for('menu.index') }}">Inicio</a>
     <br><br>
-    {% for local in localidades %}
-    <div>
-        <h4>ID: {{ local['id'] }}</h4>
-        <h4>Fazenda: {{ local['nome_fazenda'] }}</h4>
-        <h4>Estado: {{ local['estado'] }}</h4>
-        <h4>Cidade: {{ local['cidade'] }}</h4>
-        <h4>Propietario: {{ local['propietario'] }}</h4>
-        <a href="{{ url_for('local.edit', id = local['id']) }}">Editar</a>
-    </div>
-    <br>
-    {% endfor %}
+    <button onclick="history.back()">Voltar</button>
+    <br><br><br><br>
+    <h2>ID: {{ local['id'] }}</h2>
+    <h4>Nome da fazenda: {{ local['nome_fazenda'] }}</h4>
+    <h4>Estado: {{ local['estado'] }}</h4>
+    <h4>Cidade: {{ local['cidade'] }}</h4>
+    <h4>Propietario: {{ local['propietario'] }}</h4>
+    <br><br>
+    <a href="{{ url_for('local.edit', id = local['id']) }}">Editar local</a>
 </body>
 </html>
