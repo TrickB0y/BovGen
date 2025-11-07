@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ver raças</title>
+</head>
+<body>
+    <a href="{{ url_for('menu.index') }}">Inicio</a>
+    <br><br>
+    <button onclick="history.back()">Voltar</button>
+    <br><br>
+    {% for raca in racas %}
+    <div>
+        <h4>ID: {{ raca['id'] }}</h4>
+        <h4>Nome: {{ raca['name'] }}</h4>
+        <a href="{{ url_for('racas.view', id = raca['id']) }}">Ver</a>
+    </div>
+    <br>
+    {% endfor %}
+</body>
+</html>
