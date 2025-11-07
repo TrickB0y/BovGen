@@ -6,7 +6,9 @@
     <title>Novo Local</title>
 </head>
 <body>
-    <a href="{{ url_for('menu.index') }}">Voltar</a>
+    <a href="{{ url_for('menu.index') }}">Inicio</a>
+    <br><br>
+    <button onclick="history.back()">Voltar</button>
     <br><br>
     <form method="post">
         <label for="local-nome_fazenda">Nome da fazenda</label>
