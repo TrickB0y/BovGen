@@ -44,16 +44,30 @@ def add():
     return render_template("app/local/add.html")
 
 
-@bp.route("/view", methods=("GET",))
+@bp.route("/all", methods=("GET",))
 @login_required
-def view():
+def all():
     db = get_db()
 
     localidades = db.execute(
         "SELECT * FROM Localidades"
     ).fetchall()
-    return render_template("app/local/view.html", localidades=localidades)
+    return render_template("app/local/all.html", localidades=localidades)
 
+@bp.route("/view/<int:id>", methods=("GET",))
+@login_required
+def view(id):
+    db = get_db()
+
+    local = db.execute(
+        "SELECT * FROM Localidades WHERE id = ?",
+        (id,)
+    ).fetchone()
+
+    if local is None:
+        return "Local não encontrado."
+    
+    return render_template("app/local/view.html", local=local)
 
 @bp.route("/edit/<int:id>", methods=("GET", "POST"))
 @login_required
