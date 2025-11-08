@@ -39,6 +39,7 @@ def add():
         local = request.form["local"]
         pai = request.form["pai"]
         mae = request.form["mae"]
+        propietario = request.form["propietario"]
 
         
         if rgd is None:
@@ -59,9 +60,9 @@ def add():
         if error is None:
             try:
                 db.execute(
-                    "INSERT INTO Animais(rgd, raca_id, nome, sexo, categoria, nascimento, localidade_id, pai_id, mae_id)"
-                    "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
-                    (rgd, raca, nome, sexo, categoria, nascimento, local, pai, mae,)
+                    "INSERT INTO Animais(rgd, raca_id, nome, sexo, categoria, nascimento, localidade_id, pai_id, mae_id, propietario)"
+                    "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+                    (rgd, raca, nome, sexo, categoria, nascimento, local, pai, mae, propietario,)
                 )
                 db.commit()
             except db.IntegrityError:
@@ -159,6 +160,7 @@ def edit(id):
         local = request.form["local"]
         pai = request.form["pai"]
         mae = request.form["mae"]
+        propietario = request.form["propietario"]
 
         
         if rgd is None:
@@ -172,13 +174,16 @@ def edit(id):
         
         if sexo != "MASCULINO" and sexo != "FEMININO":
             error = "Sexo invalido."
+            
+        if categoria != "PO" and sexo != "PA":
+            error = "Categoria invalida."
         
         if error is None:
             try:
                 db.execute(
-                    "UPDATE Animais SET rgd = ?, raca_id = ?, nome = ?, sexo = ?, categoria = ?, nascimento = ?, localidade_id = ?, pai_id = ?, mae_id = ?"
+                    "UPDATE Animais SET rgd = ?, raca_id = ?, nome = ?, sexo = ?, categoria = ?, nascimento = ?, localidade_id = ?, pai_id = ?, mae_id = ?, propietario = ?"
                     "WHERE id = ?",
-                    (rgd, raca, nome, sexo, categoria, nascimento, local, pai, mae, id,)
+                    (rgd, raca, nome, sexo, categoria, nascimento, local, pai, mae, propietario, id,)
                 )
                 db.commit()
             except db.IntegrityError:
