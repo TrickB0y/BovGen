@@ -65,6 +65,9 @@
             <option value="{{ femea['id'] }}">{{ femea['name'] }}</option>
             {% endfor %}
         </select>
+        <br>
+        <label for="animal-propietario">propietario do animal</label>
+        <input value="{{ animal['propietario'] }}" id="animal-propietario" name="propietario" type="text">
         <br><br>
         <input type="submit" value="Adicionar Animal">
     </form>
