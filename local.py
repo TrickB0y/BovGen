@@ -16,7 +16,6 @@ def add():
         nome_fazenda = request.form["nome_fazenda"]
         estado = request.form["estado"]
         cidade = request.form["cidade"]
-        propietario = request.form["propietario"]
         
         if nome_fazenda is None:
             error = "A fazenda precisa ter nome."
@@ -24,15 +23,13 @@ def add():
             error = "O estado precisa ser informado."
         if cidade is None:
             error = "A cidade precisa ser informado."
-        if propietario is None:
-            error = "O propietario precisa ser informado."
         
         if error is None:
             try:
                 db.execute(
-                    "INSERT INTO Localidades(nome_fazenda, estado, cidade, propietario)"
-                    "VALUES (?, ?, ?, ?)",
-                    (nome_fazenda, estado, cidade, propietario)
+                    "INSERT INTO Localidades(nome_fazenda, estado, cidade)"
+                    "VALUES (?, ?, ?)",
+                    (nome_fazenda, estado, cidade,)
                 )
                 db.commit()
             except db.IntegrityError:
@@ -87,7 +84,6 @@ def edit(id):
         nome_fazenda = request.form["nome_fazenda"]
         estado = request.form["estado"]
         cidade = request.form["cidade"]
-        propietario = request.form["propietario"]
         
         if nome_fazenda is None:
             error = "A fazenda precisa ter nome."
@@ -95,15 +91,13 @@ def edit(id):
             error = "O estado precisa ser informado."
         elif cidade is None:
             error = "A cidade precisa ser informado."
-        elif propietario is None:
-            error = "O propietario precisa ser informado."
         
         if error is None:
             try:
                 db.execute(
-                    "UPDATE Localidades SET nome_fazenda = ?, estado = ?, cidade = ?, propietario = ?"
+                    "UPDATE Localidades SET nome_fazenda = ?, estado = ?, cidade = ?"
                     "WHERE id = ?",
-                    (nome_fazenda, estado, cidade, propietario, id)
+                    (nome_fazenda, estado, cidade, id)
                 )
                 db.commit()
             except db.IntegrityError:
