@@ -15,11 +15,12 @@
     <h4>Raça: {% if raca is none %} Não informada {% else %} {{ raca['name'] }} {% endif %}</h4>
     <h4>Nome: {{ animal['nome'] }}</h4>
     <h4>Sexo: {{ animal['sexo'] }}</h4>
-    <h4>Categoria: {{ animal['categoria'] }}</h4>
-    <h4>Nascimento: {{ animal['nascimento'] }}</h4>
-    <h4>Localidade:{% if local is none %} Não informada {% else %} <a href="{{ url_for('local.view', id=local['id']) }}">ID: {{ local['id'] }} | Nome: {{ local['nome_fazenda'] }}</a> {% endif %}</h4>
+    <h4>Categoria: {% if animal['categoria'] is none %} Não informado {% else %} {{ animal['categoria'] }} {% endif %}</h4>
+    <h4>Nascimento: {% if animal['nascimento'] is none %} Não informado {% else %} {{ animal['nascimento'] }} {% endif %}</h4>
+    <h4>Localidade: {% if local is none %} Não informada {% else %} <a href="{{ url_for('local.view', id=local['id']) }}">ID: {{ local['id'] }} | Nome: {{ local['nome_fazenda'] }}</a> {% endif %}</h4>
     <h4>Pai: {% if pai is none %} Não informado {% else %} <a href="{{ url_for('animais.view', id=pai['id']) }}">ID: {{ pai['id'] }} | Nome: {{ pai['nome'] }}</a> {% endif %}</h4>
     <h4>Mãe: {% if mae is none %} Não informada {% else %} <a href="{{ url_for('animais.view', id=mae['id']) }}">ID: {{ mae['id'] }} | Nome: {{ mae['nome'] }}</a> {% endif %}</h4></h4>
+    <h4>Propietario: {% if animal['propietario'] is none %} Não informado {% else %} {{ animal['propietario'] }} {% endif %}</h4>
     <br><br>
     <a href="{{ url_for('animais.edit', id=animal['id']) }}">Editar animal</a>
 </body>
