@@ -33,7 +33,11 @@
         </select>
         <br>
         <label for="animal-categoria">Categoria do animal</label>
-        <input value="{{ animal['categoria'] }}" id="animal-categoria" name="categoria" type="text">
+        <select name="categoria" id="animal-categoria" size="1">
+            <option value="">Não selecionado</option>
+            <option value="PO">PO</option>
+            <option value="PA">PA</option>
+        </select>
         <br>
         <label for="animal-nascimento">Nascimento do animal</label>
         <input value="{{ animal['nascimento'] }}" id="animal-nascimento" name="nascimento" type="text">
@@ -76,11 +80,13 @@
         const localSelect = document.getElementById("animal-localidade");
         const paiSelect = document.getElementById("animal-pai");
         const maeSelect = document.getElementById("animal-mae");
+        const categoriaSelect = document.getElementById("animal-categoria");
         racaSelect.value = "{{ animal['raca_id'] }}";
         sexoSelect.value = "{{ animal['sexo'] }}";
         localSelect.value = "{{ animal['localidade_id'] }}";
         paiSelect.value = "{{ animal['pai_id'] }}";
         maeSelect.value = "{{ animal['mae_id'] }}";
+        categoriaSelect.value = "{{ animal['categoria'] }}";
     </script>
 </body>
 </html>
