@@ -23,7 +23,13 @@ Projeto de Logistica e Gerenciamento de Genética e Semêm Bovino.
 > gerenciamento de amostras, qualidade, raça e localização dos bovinos, com foco
 > em otimizar e potencializar os processos manuais de monitoramento.
 
-comandos para testar:
+## recomendo fazer uma pasta antes de clonar o repositorio e clonar o repositorio lá dentro:
+```
+mkdir BovGen-env
+cd BovGen-env
+```
+
+## comandos clonar e configurar:
 ```
 git clone https://github.com/TrickB0y/BovGen.git
 cd BovGen
@@ -31,13 +37,15 @@ python -m venv .venv
 .\.venv\Scripts\activate
 python -m pip install Flask
 ```
-o ambiente esta configurado
+## o ambiente esta configurado
 
-agora para testar tem um script apenas para windows powershell
+## agora para testar tem um script apenas para windows powershell
 ```
 .\debugtest.ps1
 ```
 
-o script reseta o banco de dados e adiciona um usuario com:
+## o script reseta o banco de dados e adiciona um usuario com:
+
 **login:** 202320020
+
 **senha:** 1234
