@@ -52,6 +52,9 @@ def add():
         
         if sexo != "MASCULINO" and sexo != "FEMININO":
             error = "Sexo invalido."
+            
+        if categoria != "PO" and sexo != "PA":
+            error = "Categoria invalida."
         
         if error is None:
             try:
