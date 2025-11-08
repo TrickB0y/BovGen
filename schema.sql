@@ -18,8 +18,7 @@ CREATE TABLE Localidades (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     nome_fazenda TEXT UNIQUE NOT NULL,
     estado TEXT NOT NULL,
-    cidade TEXT NOT NULL,
-    propietario TEXT NOT NULL
+    cidade TEXT NOT NULL
 );
 
 CREATE TABLE Animais (
@@ -33,6 +32,7 @@ CREATE TABLE Animais (
     localidade_id INTEGER,
     pai_id INTEGER,
     mae_id INTEGER,
+    propietario TEXT,
     FOREIGN KEY (pai_id) REFERENCES Animais(id),
     FOREIGN KEY (mae_id) REFERENCES Animais(id)
 );
