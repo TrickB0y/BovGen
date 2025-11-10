@@ -55,11 +55,37 @@ CREATE TABLE Coleta (
     dataColeta DATE NOT NULL,
     tipoColeta_id INTEGER NOT NULL,
     dadoColeta_id INTEGER,
-    sucesso BOOLEAN NOT NULL,
-    exposicao BOOLEAN NOT NULL,
+    #sucesso é bool 'SIM' ou 'NÃO'
+    sucesso TEXT NOT NULL,
+    #exposicao é bool 'SIM' ou 'NÃO'
+    exposicao TEXT NOT NULL,
     anotacao TEXT,
     quantidade INTEGER,
     FOREIGN KEY (animal_id) REFERENCES Animais(id),
     FOREIGN KEY (tipoColeta_id) REFERENCES TipoColeta(id)
 );
 
+CREATE TABLE EletroEjaculador (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    coleta_id INTEGER NOT NULL,
+    modo TEXT,
+    intensidade TEXT,
+    #quantidade 0..30
+    quantidadeEstimulos INTEGER,
+    FOREIGN KEY (coleta_id) REFERENCES Coleta(id)
+);
+
+CREATE TABLE VaginaArtificial (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    coleta_id INTEGER NOT NULL,
+    vacaORmanequin TEXT,
+    vaca TEXT,
+    FOREIGN KEY (coleta_id) REFERENCES Coleta(id)
+);
+
+CREATE TABLE EstimulacaoManual (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    coleta_id INTEGER NOT NULL,
+    tempoMinutos INTEGER,
+    FOREIGN KEY (coleta_id) REFERENCES Coleta(id)
+);
