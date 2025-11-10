@@ -2,6 +2,8 @@ DROP TABLE IF EXISTS Users;
 DROP TABLE IF EXISTS Racas;
 DROP TABLE IF EXISTS Localidades;
 DROP TABLE IF EXISTS Animais;
+DROP TABLE IF EXISTS Coleta;
+DROP TABLE IF EXISTS TipoColeta;
 
 CREATE TABLE Users (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -36,3 +38,28 @@ CREATE TABLE Animais (
     FOREIGN KEY (pai_id) REFERENCES Animais(id),
     FOREIGN KEY (mae_id) REFERENCES Animais(id)
 );
+
+CREATE TABLE TipoColeta (
+    id INTEGER NOT NULL,
+    nome TEXT NOT NULL
+);
+
+INSERT INTO TipoColeta(nome) VALUES
+('Eletro Ejaculador'),
+('Vagina Artificial'),
+('Estimulação Manual');
+
+CREATE TABLE Coleta (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    animal_id INTEGER NOT NULL,
+    dataColeta DATE NOT NULL,
+    tipoColeta_id INTEGER NOT NULL,
+    dadoColeta_id INTEGER,
+    sucesso BOOLEAN NOT NULL,
+    exposicao BOOLEAN NOT NULL,
+    anotacao TEXT,
+    quantidade INTEGER,
+    FOREIGN KEY (animal_id) REFERENCES Animais(id),
+    FOREIGN KEY (tipoColeta_id) REFERENCES TipoColeta(id)
+);
+
