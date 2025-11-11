@@ -2,8 +2,11 @@ DROP TABLE IF EXISTS Users;
 DROP TABLE IF EXISTS Racas;
 DROP TABLE IF EXISTS Localidades;
 DROP TABLE IF EXISTS Animais;
-DROP TABLE IF EXISTS TipoColeta;
-DROP TABLE IF EXISTS Coleta;
+DROP TABLE IF EXISTS TiposColeta;
+DROP TABLE IF EXISTS Coletas;
+DROP TABLE IF EXISTS ColetasEletroEjaculador;
+DROP TABLE IF EXISTS ColetasVaginaArtificial;
+DROP TABLE IF EXISTS ColetasEstimulacaoManual;
 
 CREATE TABLE Users (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -39,25 +42,23 @@ CREATE TABLE Animais (
     FOREIGN KEY (mae_id) REFERENCES Animais(id)
 );
 
-CREATE TABLE TipoColeta (
-    id INTEGER NOT NULL,
+CREATE TABLE TiposColeta (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
     nome TEXT NOT NULL
 );
 
-INSERT INTO TipoColeta(nome) VALUES
+INSERT INTO TiposColeta(nome) VALUES
 ('Eletro Ejaculador'),
 ('Vagina Artificial'),
 ('Estimulação Manual');
 
-CREATE TABLE Coleta (
+CREATE TABLE Coletas (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     animal_id INTEGER NOT NULL,
     dataColeta DATE NOT NULL,
     tipoColeta_id INTEGER NOT NULL,
     dadoColeta_id INTEGER,
-    #sucesso é bool 'SIM' ou 'NÃO'
     sucesso TEXT NOT NULL,
-    #exposicao é bool 'SIM' ou 'NÃO'
     exposicao TEXT NOT NULL,
     anotacao TEXT,
     quantidade INTEGER,
@@ -65,17 +66,16 @@ CREATE TABLE Coleta (
     FOREIGN KEY (tipoColeta_id) REFERENCES TipoColeta(id)
 );
 
-CREATE TABLE EletroEjaculador (
+CREATE TABLE ColetasEletroEjaculador (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     coleta_id INTEGER NOT NULL,
     modo TEXT,
     intensidade TEXT,
-    #quantidade 0..30
     quantidadeEstimulos INTEGER,
     FOREIGN KEY (coleta_id) REFERENCES Coleta(id)
 );
 
-CREATE TABLE VaginaArtificial (
+CREATE TABLE ColetasVaginaArtificial (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     coleta_id INTEGER NOT NULL,
     vacaORmanequin TEXT,
@@ -83,7 +83,7 @@ CREATE TABLE VaginaArtificial (
     FOREIGN KEY (coleta_id) REFERENCES Coleta(id)
 );
 
-CREATE TABLE EstimulacaoManual (
+CREATE TABLE ColetasEstimulacaoManual (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     coleta_id INTEGER NOT NULL,
     tempoMinutos INTEGER,
