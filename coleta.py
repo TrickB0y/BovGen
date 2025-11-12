@@ -60,16 +60,38 @@ def add():
             except db.IntegrityError:
                 error = "Algo deu errado."
             else:
-                if
-                try:
-                    db.execute(
-                        "INSERT INTO Coletas(animal_id, dataColeta, tipoColeta_id, sucesso, exposicao, anotacao, quantidade)"
-                        "VALUES (?, ?, ?, ?, ?, ?, ?)",
-                        (animal, dataColeta, tipoColeta, sucesso, exposicao, anotacao, quantidade,)
-                    )
-                    db.commit()
-                except db.IntegrityError:
-                    error = "Algo deu errado."
-                else:
+                if tipoColeta == 1:
+                    try:
+                        db.execute(
+                            "INSERT INTO ColetasEletroEjaculador(animal_id, dataColeta, tipoColeta_id, sucesso, exposicao, anotacao, quantidade)"
+                            "VALUES (?, ?, ?, ?, ?, ?, ?)",
+                            (animal, dataColeta, tipoColeta, sucesso, exposicao, anotacao, quantidade,)
+                        )
+                        db.commit()
+                    except db.IntegrityError:
+                        error = "Algo deu errado."
+                    else:
+                elif tipoColeta == 2:
+                    try:
+                        db.execute(
+                            "INSERT INTO Coletas(animal_id, dataColeta, tipoColeta_id, sucesso, exposicao, anotacao, quantidade)"
+                            "VALUES (?, ?, ?, ?, ?, ?, ?)",
+                            (animal, dataColeta, tipoColeta, sucesso, exposicao, anotacao, quantidade,)
+                        )
+                        db.commit()
+                    except db.IntegrityError:
+                        error = "Algo deu errado."
+                    else:
+                elif tipoColeta == 3:
+                    try:
+                        db.execute(
+                            "INSERT INTO Coletas(animal_id, dataColeta, tipoColeta_id, sucesso, exposicao, anotacao, quantidade)"
+                            "VALUES (?, ?, ?, ?, ?, ?, ?)",
+                            (animal, dataColeta, tipoColeta, sucesso, exposicao, anotacao, quantidade,)
+                        )
+                        db.commit()
+                    except db.IntegrityError:
+                        error = "Algo deu errado."
+                    else:
     
         flash(error)
