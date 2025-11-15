@@ -57,7 +57,7 @@ CREATE TABLE Coletas (
     animal_id INTEGER NOT NULL,
     dataColeta DATE NOT NULL,
     tipoColeta_id INTEGER NOT NULL,
-    dadoColeta_id INTEGER,
+    dadosColeta_id INTEGER,
     sucesso TEXT NOT NULL,
     exposicao TEXT NOT NULL,
     anotacao TEXT,
@@ -78,7 +78,7 @@ CREATE TABLE ColetasEletroEjaculador (
 CREATE TABLE ColetasVaginaArtificial (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     coleta_id INTEGER NOT NULL,
-    vacaORmanequin TEXT,
+    vacaORmanequim TEXT,
     vaca TEXT,
     FOREIGN KEY (coleta_id) REFERENCES Coleta(id)
 );
