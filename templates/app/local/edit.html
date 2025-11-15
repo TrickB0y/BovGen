@@ -8,8 +8,6 @@
 <body>
     <a href="{{ url_for('menu.index') }}">Inicio</a>
     <br><br>
-    <button onclick="history.back()">Voltar</button>
-    <br><br>
     <form method="post">
         <label for="local-name">Nome da fazenda</label>
         <input value="{{ local['nome_fazenda'] }}" id="local-name" name="nome_fazenda" type="text">
