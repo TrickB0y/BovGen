@@ -42,19 +42,19 @@ def add():
         propietario = request.form["propietario"]
 
         
-        if rgd is None:
+        if rgd is None or rgd == "":
             error = "O animal precisa ter um RGD."
-        elif raca is None:
+        elif raca is None or raca == "":
             error = "O animal precisa ter uma raça."
-        elif nome is None:
+        elif nome is None or nome == "":
             error = "O animal precisa ter um nome."
-        elif sexo is None:
+        elif sexo is None or sexo == "":
             error = "O sexo do animal precisa ser selecionado."
         
-        if sexo != "MASCULINO" and sexo != "FEMININO":
+        if sexo != "MASCULINO" and sexo != "FEMININO" and sexo != "":
             error = "Sexo invalido."
             
-        if categoria != "PO" and sexo != "PA":
+        if categoria != "PO" and categoria != "PA" and categoria != "":
             error = "Categoria invalida."
         
         if error is None:
@@ -163,19 +163,19 @@ def edit(id):
         propietario = request.form["propietario"]
 
         
-        if rgd is None:
+        if rgd is None or rgd == "":
             error = "O animal precisa ter um RGD."
-        elif raca is None:
+        elif raca is None or raca == "":
             error = "O animal precisa ter uma raça."
-        elif nome is None:
+        elif nome is None or nome == "":
             error = "O animal precisa ter um nome."
-        elif sexo is None:
+        elif sexo is None or sexo == "":
             error = "O sexo do animal precisa ser selecionado."
         
-        if sexo != "MASCULINO" and sexo != "FEMININO":
+        if sexo != "MASCULINO" and sexo != "FEMININO" and sexo != "":
             error = "Sexo invalido."
             
-        if categoria != "PO" and sexo != "PA":
+        if categoria != "PO" and categoria != "PA" and categoria != "":
             error = "Categoria invalida."
         
         if error is None:
