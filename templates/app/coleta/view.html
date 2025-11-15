@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ver coleta</title>
+</head>
+<body>
+    <a href="{{ url_for('menu.index') }}">Inicio</a>
+    <br><br>
+    <button onclick="history.back()">Voltar</button>
+    <br><br><br><br>
+    <h2>Animal:<a href="{{ url_for('animais.view', id=animal['id']) }}">ID: {{ animal['id'] }} | Nome: {{ animal['nome'] }}</a></h2>
+    <h4>Data: {{ coleta['dataColeta'] }}</h4>
+    <h4>Tipo de coleta: {{ tipoColeta['nome'] }}</h4>
+    {% if tipoColeta['id'] == 1 %}
+    <h4>Modo: {{ dadosColeta['modo'] }}</h4>
+    <h4>Intensidade: {{ dadosColeta['intensidade'] }}</h4>
+    <h4>Quantidade de estimulos: {{ dadosColeta['quantidadeEstimulos'] }}</h4>
+    {% elif tipoColeta['id'] == 2 %}
+    <h4>Vaca ou manequim: {{ dadosColeta['vacaORmanequim'] }}</h4>
+    <h4>Nome da vaca: {{ dadosColeta['vaca'] }}</h4>
+    {% elif tipoColeta['id'] == 3 %}
+    <h4>Tempo de estimulação (minutos): {{ dadosColeta['tempoMinutos'] }}</h4>
+    {% endif %}
+    <h4>Coleta bem sucedida: {{ coleta['sucesso'] }}</h4>
+    <h4>Pênis exposto?: {{ coleta['exposicao'] }}</h4>
+    <h4>Anotação:</h4>
+    <br>
+    <p>{{ coleta['anotacao'] }}</p>
+    <br>
+    <h4>Quantidade (ml): {{ coleta['quantidade'] }}</h4>
+    <br><br>
+    <a href="{{ url_for('coleta.edit', id=coleta['id']) }}">Editar coleta</a>
+</body>
+</html>

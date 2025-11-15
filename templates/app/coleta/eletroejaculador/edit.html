@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Coleta</title>
+</head>
+<body>
+    <a href="{{ url_for('menu.index') }}">Inicio</a>
+    <br><br>
+    <form method="post">
+        <label for="coletaDados-modo">Modo</label>
+        <input id="coletaDados-modo" name="modo" type="text" value="{% if dadosColeta['modo'] == none %}{% else %}{{ dadosColeta['modo'] }}{% endif %}">
+        <br>
+        <label for="coletaDados-intensidade">Intensidade</label>
+        <input id="coletaDados-intensidade" name="intensidade" type="text" value="{% if dadosColeta['intensidade'] == none %}{% else %}{{ dadosColeta['intensidade'] }}{% endif %}">
+        <br>
+        <label for="coletaDados-quantidade">Quantidade de estimulos</label>
+        <input id="coletaDados-quantidade" name="quantidadeEstimulos" type="number" value="{% if dadosColeta['quantidadeEstimulos'] == none %}0{% else %}{{ dadosColeta['quantidadeEstimulos'] }}{% endif %}">
+        <br><br>
+        <input type="submit" value="Entregar coleta">
+    </form>
+    <br><br>
+    <div class="flash-messages">
+    {% for message in get_flashed_messages() %}
+        <div class="flash">{{ message }}</div>
+    {% endfor %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Coleta</title>
+</head>
+<body>
+    <a href="{{ url_for('menu.index') }}">Inicio</a>
+    <br><br>
+    <form method="post">
+        <label for="coletaDados-tempoMinutos">Tempo (minutos)</label>
+        <input id="coletaDados-tempoMinutos" name="tempoMinutos" type="number" value="{% if dadosColeta['tempoMinutos'] == none or dadosColeta == '' %}0{% else %}{{ dadosColeta['tempoMinutos'] }}{% endif %}">
+        <br><br>
+        <input type="submit" value="Entregar coleta">
+    </form>
+    <br><br>
+    <div class="flash-messages">
+    {% for message in get_flashed_messages() %}
+        <div class="flash">{{ message }}</div>
+    {% endfor %}
+    </div>
+</body>
+</html>
