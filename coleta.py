@@ -540,6 +540,32 @@ def view(id):
                 "SELECT * FROM TiposColeta WHERE id = ?",
                 (coleta['tipoColeta_id'] ,)
             ).fetchone()
+        if coleta['tipoColeta_id'] == 2:
+            dadosColeta = db.execute(
+                "SELECT * FROM ColetasVaginaArtificial WHERE id = ?",
+                (coleta['dadosColeta_id'],)
+            ).fetchone()
+            animal = db.execute(
+                "SELECT * FROM Animais WHERE id = ?",
+                (coleta['animal_id'],)
+            ).fetchone()
+            tipoColeta = db.execute(
+                "SELECT * FROM TiposColeta WHERE id = ?",
+                (coleta['tipoColeta_id'] ,)
+            ).fetchone()
+        if coleta['tipoColeta_id'] == 3:
+            dadosColeta = db.execute(
+                "SELECT * FROM ColetasEstimulacaoManual WHERE id = ?",
+                (coleta['dadosColeta_id'],)
+            ).fetchone()
+            animal = db.execute(
+                "SELECT * FROM Animais WHERE id = ?",
+                (coleta['animal_id'],)
+            ).fetchone()
+            tipoColeta = db.execute(
+                "SELECT * FROM TiposColeta WHERE id = ?",
+                (coleta['tipoColeta_id'] ,)
+            ).fetchone()
     
     return render_template("app/coleta/view.html", coleta=coleta, dadosColeta=dadosColeta, animal=animal, tipoColeta=tipoColeta)
 
