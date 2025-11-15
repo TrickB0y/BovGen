@@ -17,11 +17,11 @@ def add():
         estado = request.form["estado"]
         cidade = request.form["cidade"]
         
-        if nome_fazenda is None:
+        if nome_fazenda is None or nome_fazenda == "":
             error = "A fazenda precisa ter nome."
-        if estado is None:
+        if estado is None or estado == "":
             error = "O estado precisa ser informado."
-        if cidade is None:
+        if cidade is None or cidade == "":
             error = "A cidade precisa ser informado."
         
         if error is None:
@@ -85,11 +85,11 @@ def edit(id):
         estado = request.form["estado"]
         cidade = request.form["cidade"]
         
-        if nome_fazenda is None:
+        if nome_fazenda is None or nome_fazenda == "":
             error = "A fazenda precisa ter nome."
-        elif estado is None:
+        if estado is None or estado == "":
             error = "O estado precisa ser informado."
-        elif cidade is None:
+        if cidade is None or cidade == "":
             error = "A cidade precisa ser informado."
         
         if error is None:

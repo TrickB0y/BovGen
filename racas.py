@@ -15,7 +15,7 @@ def add():
     if request.method == "POST":
         name = request.form["name"]
         
-        if name is None:
+        if name is None or name == "":
             error = "A raça precisa ter nome."
         
         if error is None:
@@ -72,7 +72,7 @@ def edit(id):
     if request.method == "POST":
         name = request.form["name"]
         
-        if name is None:
+        if name is None or name is "":
             error = "A raça precisa ter nome."
         
         if error is None:
