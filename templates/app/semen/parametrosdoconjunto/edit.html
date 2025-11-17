@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar parametros do conjunto do sêmen</title>
+</head>
+<body>
+    <a href="{{ url_for('menu.index') }}">Inicio</a>
+    <br><br>
+    <form method="post">
+        <label for="parametrosDoConjunto-motilidade">Motilidade (%)</label>
+        <input id="parametrosDoConjunto-motilidade" name="motilidade" type="number" value="{% if parametrosDoConjunto['motilidade'] is none %}0{% else %}{{ parametrosDoConjunto['motilidade'] }}{% endif %}">
+        <br><br>
+        <label for="parametrosDoConjunto-motilidadeAprovacao">Motilidade aprovada?</label>
+        <select name="motilidadeAprovacao" id="parametrosDoConjunto-motilidadeAprovacao" size="1">
+            <option value="">Não selecionado</option>
+            <option value="SIM">SIM</option>
+            <option value="NÃO">NÃO</option>
+        </select>
+        <br><br>
+        <label for="parametrosDoConjunto-vigor">Vigor</label>
+        <input id="parametrosDoConjunto-vigor" name="vigor" type="number" value="{% if parametrosDoConjunto['vigor'] is none %}0{% else %}{{ parametrosDoConjunto['vigor'] }}{% endif %}">
+        <br><br>
+        <label for="parametrosDoConjunto-vigorAprovacao">Vigor aprovado?</label>
+        <select name="vigorAprovacao" id="parametrosDoConjunto-vigorAprovacao" size="1">
+            <option value="">Não selecionado</option>
+            <option value="SIM">SIM</option>
+            <option value="NÃO">NÃO</option>
+        </select>
+        <br><br>
+        <label for="parametrosDoConjunto-concentracao">Concentracao</label>
+        <input id="parametrosDoConjunto-concentracao" name="concentracao" type="number" value="{% if parametrosDoConjunto['concentracao'] is none %}0{% else %}{{ parametrosDoConjunto['concentracao'] }}{% endif %}">
+        <br><br>
+        <label for="parametrosDoConjunto-concentracaoAprovacao">Concentração aprovado?</label>
+        <select name="concentracaoAprovacao" id="parametrosDoConjunto-concentracaoAprovacao" size="1">
+            <option value="">Não selecionado</option>
+            <option value="SIM">SIM</option>
+            <option value="NÃO">NÃO</option>
+        </select>
+        <br><br><br><br>
+        <input type="submit" value="Editar parametros do conjunto">
+    </form>
+    <br><br>
+    <div class="flash-messages">
+    {% for message in get_flashed_messages() %}
+        <div class="flash">{{ message }}</div>
+    {% endfor %}
+    </div>
+    <script>
+        /*
+        {% if parametrosDoConjunto['motilidadeAprovacao'] is not none %}
+        */
+        const motilidadeAprovacaoSelect = document.getElementById("parametrosDoConjunto-motilidadeAprovacao");
+        motilidadeAprovacaoSelect.value = "{{ parametrosDoConjunto['motilidadeAprovacao'] }}";
+        /*
+        {% endif %}
+        */
+        /*
+        {% if parametrosDoConjunto['vigorAprovacao'] is not none %}
+        */
+        const vigorAprovacaoSelect = document.getElementById("parametrosDoConjunto-vigorAprovacao");
+        vigorAprovacaoSelect.value = "{{ parametrosDoConjunto['vigorAprovacao'] }}";
+        /*
+        {% endif %}
+        */
+        /*
+        {% if parametrosDoConjunto['concentracaoAprovacao'] is not none %}
+        */
+        const concentracaoAprovacaoSelect = document.getElementById("parametrosDoConjunto-concentracaoAprovacao"); 
+        concentracaoAprovacaoSelect.value = "{{ parametrosDoConjunto['concentracaoAprovacao'] }}";
+        /*
+        {% endif %}
+        */
+    </script>
+</body>
+</html>

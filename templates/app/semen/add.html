@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Novo sêmen</title>
+</head>
+<body>
+    <a href="{{ url_for('menu.index') }}">Inicio</a>
+    <br><br>
+    <form method="post">
+        <label for="semen-coleta">Coleta referente ao sêmen:</label>
+        <select name="coleta" id="semen-coleta" size="1">
+            <option value="">
+                Não selecionado
+            </option>
+            {% for coleta in coletas %}
+            <option value="{{ coleta['id'] }}">
+                ID: {{ coleta['id'] }} | 
+                Animal: {{ coleta['nomeAnimal'] }}  | 
+                Data: {{ coleta['data'] }}  | 
+                Tipo: {{ coleta['tipoColetaNome'] }}
+            </option>
+            {% endfor %}
+        </select>
+        <br><br>
+        <input type="submit" value="Criar Sêmen">
+    </form>
+    <br><br>
+    <div class="flash-messages">
+    {% for message in get_flashed_messages() %}
+        <div class="flash">{{ message }}</div>
+    {% endfor %}
+    </div>
+</body>
+</html>

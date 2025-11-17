@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar caracteristicas do sêmen</title>
+</head>
+<body>
+    <a href="{{ url_for('menu.index') }}">Inicio</a>
+    <br><br>
+    <form method="post">
+        <label for="caracteristicas-contaminacao">Sêmen contaminado?</label>
+        <select name="contaminacao" id="caracteristicas-contaminacao" size="1">
+            <option value="">Não selecionado</option>
+            <option value="SIM">SIM</option>
+            <option value="NÃO">NÃO</option>
+        </select>
+        <br><br>
+        <label for="caracteristicas-quantidade">Quantidade (ml)</label>
+        <input id="caracteristicas-quantidade" name="quantidade" type="number" value="{% if caracteristicas['quantidade'] is none %}0{% else %}{{ caracteristicas['quantidade'] }}{% endif %}">
+        <br><br>
+        <label for="caracteristicas-consistencia">Consistência</label>
+        <select name="consistencia" id="caracteristicas-consistencia" size="1">
+            <option value="">Não selecionado</option>
+            <option value="CREMOSO">CREMOSO</option>
+            <option value="AQUOSO">AQUOSO</option>
+        </select>
+        <br><br>
+        <label for="caracteristicas-peso">Contagem de gota distal</label>
+        <input id="caracteristicas-peso" name="peso" type="number" value="{% if caracteristicas['peso'] is none %}0{% else %}{{ caracteristicas['peso'] }}{% endif %}">
+        <br><br>
+        <label for="caracteristicas-cor">Cor</label>
+        <select name="cor" id="caracteristicas-cor" size="1">
+            <option value="">Não selecionado</option>
+            <option value="BRANCO">BRANCO</option>
+            <option value="AMARELO">AMARELO</option>
+            <option value="ACINZENTADO">ACINZENTADO</option>
+        </select>
+        <br><br>
+        <label for="caracteristicas-anotacao">Area de anotação</label>
+        <textarea name="anotacao" id="caracteristicas-anotacao">
+            {% if caracteristicas['anotacao'] is not none %}
+            {{ caracteristicas['anotacao'] }}
+            {% endif %}
+        </textarea>
+        <br><br><br><br>
+        <input type="submit" value="Editar Caracteristicas">
+    </form>
+    <br><br>
+    <div class="flash-messages">
+    {% for message in get_flashed_messages() %}
+        <div class="flash">{{ message }}</div>
+    {% endfor %}
+    </div>
+    <script>
+        /*
+        {% if caracteristicas['contaminacao'] is not none %}
+        */
+        const contaminacaoSelect = document.getElementById("caracteristicas-contaminacao");
+        contaminacaoSelect.value = "{{ caracteristicas['contaminacao'] }}";
+        /*
+        {% endif %}
+        */
+        /*
+        {% if caracteristicas['consistencia'] is not none %}
+        */
+        const consistenciaSelect = document.getElementById("caracteristicas-consistencia");
+        consistenciaSelect.value = "{{ caracteristicas['consistencia'] }}";
+        /*
+        {% endif %}
+        */
+        /*
+        {% if caracteristicas['cor'] is not none %}
+        */
+        const corSelect = document.getElementById("caracteristicas-cor"); 
+        corSelect.value = "{{ caracteristicas['cor'] }}";
+        /*
+        {% endif %}
+        */
+    </script>
+</body>
+</html>

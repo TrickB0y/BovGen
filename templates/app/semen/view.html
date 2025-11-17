@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ver sêmen</title>
+</head>
+<body>
+    <a href="{{ url_for('menu.index') }}">Inicio</a>
+    <br><br>
+    <button onclick="history.back()">Voltar</button>
+    <br><br><br><br>
+    <h4>ID do sêmen: {{ semen['id'] }}</h4>
+    <h4>Coleta:</h4>
+        <a href="{{ url_for('coleta.view', id=coleta['id'] ) }}">
+            <p><b>ID:</b> {{ coleta['id'] }}</p>
+            <p>Animal: {{ coleta['nomeAnimal'] }}</p>
+            <p>Data: {{ coleta['data'] }}</p>
+            <p>Tipo: {{ coleta['tipoColetaNome'] }}</p>
+        </a>
+    <br><br>
+    <h4><a href="{{ url_for('semen.viewCaracteristicas', id=semen['semenCaracteristicas_id']) }}">Ver Caracteristicas</a></h4>
+    <br><br>
+    <h4><a href="{{ url_for('semen.viewParametrosDoConjunto', id=semen['semenParametrosDoConjunto_id']) }}">Ver Parametros do Conjunto</a></h4>
+    <br><br>
+    <h4><a href="{{ url_for('semen.viewMorfologiaEspermatica', id=semen['semenMorfologiaEspermatica_id']) }}">Ver Morfologia Espermatica</a></h4>
+    <br><br>
+</body>
+</html>

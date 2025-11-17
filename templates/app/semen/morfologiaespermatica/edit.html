@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar morfologia espermatica do sêmen</title>
+</head>
+<body>
+    <a href="{{ url_for('menu.index') }}">Inicio</a>
+    <br><br>
+    <form method="post">
+        <label for="morfologia-normal">Contagem de normal</label>
+        <input id="morfologia-normal" name="normalContagem" type="number" value="{% if morfologiaEspermatica['normalContagem'] is none %}0{% else %}{{ morfologiaEspermatica['normalContagem'] }}{% endif %}">
+        <br><br>
+        <label for="morfologia-acromossoma">Contagem de acromossoma</label>
+        <input id="morfologia-acromossoma" name="acromossomaContagem" type="number" value="{% if morfologiaEspermatica['acromossomaContagem'] is none %}0{% else %}{{ morfologiaEspermatica['acromossomaContagem'] }}{% endif %}">
+        <br><br>
+        <label for="morfologia-gotaProximal">Contagem de gota proximal</label>
+        <input id="morfologia-gotaProximal" name="gotaProximalContagem" type="number" value="{% if morfologiaEspermatica['gotaProximalContagem'] is none %}0{% else %}{{ morfologiaEspermatica['gotaProximalContagem'] }}{% endif %}">
+        <br><br>
+        <label for="morfologia-cabecaPequena">Contagem de cabeça pequena</label>
+        <input id="morfologia-cabecaPequena" name="cabecaPequenaContagem" type="number" value="{% if morfologiaEspermatica['cabecaPequenaContagem'] is none %}0{% else %}{{ morfologiaEspermatica['cabecaPequenaContagem'] }}{% endif %}">
+        <br><br>
+        <label for="morfologia-caldaEnroladaCabeca">Contagem de calda enrolada cabeça</label>
+        <input id="morfologia-caldaEnroladaCabeca" name="caldaEnroladaCabecaContagem" type="number" value="{% if morfologiaEspermatica['caldaEnroladaCabecaContagem'] is none %}0{% else %}{{ morfologiaEspermatica['caldaEnroladaCabecaContagem'] }}{% endif %}">
+        <br><br>
+        <label for="morfologia-cabecaIsoladaPatologica">Contagem de cabeca isolada patologica</label>
+        <input id="morfologia-cabecaIsoladaPatologica" name="cabecaIsoladaPatologicaContagem" type="number" value="{% if morfologiaEspermatica['cabecaIsoladaPatologicaContagem'] is none %}0{% else %}{{ morfologiaEspermatica['cabecaIsoladaPatologicaContagem'] }}{% endif %}">
+        <br><br>
+        <label for="morfologia-cabecaEstreitaBase">Contagem de cabeça estreita na base</label>
+        <input id="morfologia-cabecaEstreitaBase" name="cabecaEstreitaBaseContagem" type="number" value="{% if morfologiaEspermatica['cabecaEstreitaBaseContagem'] is none %}0{% else %}{{ morfologiaEspermatica['cabecaEstreitaBaseContagem'] }}{% endif %}">
+        <br><br>
+        <label for="morfologia-cabecaPiriforme">Contagem de cabeça piriforme</label>
+        <input id="morfologia-cabecaPiriforme" name="cabecaPiriformeContagem" type="number" value="{% if morfologiaEspermatica['cabecaPiriformeContagem'] is none %}0{% else %}{{ morfologiaEspermatica['cabecaPiriformeContagem'] }}{% endif %}">
+        <br><br>
+        <label for="morfologia-cabecaPequenaNormal">Contagem de cabeça pequena normal</label>
+        <input id="morfologia-cabecaPequenaNormal" name="cabecaPequenaNormalContagem" type="number" value="{% if morfologiaEspermatica['cabecaPequenaNormalContagem'] is none %}0{% else %}{{ morfologiaEspermatica['cabecaPequenaNormalContagem'] }}{% endif %}">
+        <br><br>
+        <label for="morfologia-cabecaColoracaoAnormal">Contagem de cabeça com coloração anormal</label>
+        <input id="morfologia-cabecaColoracaoAnormal" name="cabecaColoracaoAnormalContagem" type="number" value="{% if morfologiaEspermatica['cabecaColoracaoAnormalContagem'] is none %}0{% else %}{{ morfologiaEspermatica['cabecaColoracaoAnormalContagem'] }}{% endif %}">
+        <br><br>
+        <label for="morfologia-cabecaContornoAnormal">Contagem de cabeça com contorno anormal</label>
+        <input id="morfologia-cabecaContornoAnormal" name="cabecaContornoAnormalContagem" type="number" value="{% if morfologiaEspermatica['cabecaContornoAnormalContagem'] is none %}0{% else %}{{ morfologiaEspermatica['cabecaContornoAnormalContagem'] }}{% endif %}">
+        <br><br>
+        <label for="morfologia-pouchFormation">Contagem de pouch formation</label>
+        <input id="morfologia-pouchFormation" name="pouchFormationContagem" type="number" value="{% if morfologiaEspermatica['pouchFormationContagem'] is none %}0{% else %}{{ morfologiaEspermatica['pouchFormationContagem'] }}{% endif %}">
+        <br><br>
+        <label for="morfologia-cabecaUlcerada">Contagem de cabeça ulcerada</label>
+        <input id="morfologia-cabecaUlcerada" name="cabecaUlceradaContagem" type="number" value="{% if morfologiaEspermatica['cabecaUlceradaContagem'] is none %}0{% else %}{{ morfologiaEspermatica['cabecaUlceradaContagem'] }}{% endif %}">
+        <br><br>
+        <label for="morfologia-caldaDobrada">Contagem de calda dobrada</label>
+        <input id="morfologia-caldaDobrada" name="caldaDobradaContagem" type="number" value="{% if morfologiaEspermatica['caldaDobradaContagem'] is none %}0{% else %}{{ morfologiaEspermatica['caldaDobradaContagem'] }}{% endif %}">
+        <br><br>
+        <label for="morfologia-formasTeratogenica">Contagem de formas teratogênica</label>
+        <input id="morfologia-formasTeratogenica" name="formasTeratogenicaContagem" type="number" value="{% if morfologiaEspermatica['formasTeratogenicaContagem'] is none %}0{% else %}{{ morfologiaEspermatica['formasTeratogenicaContagem'] }}{% endif %}">
+        <br><br>
+        <label for="morfologia-pecaIntermediaria">Contagem de peça intermediária</label>
+        <input id="morfologia-pecaIntermediaria" name="pecaIntermediariaContagem" type="number" value="{% if morfologiaEspermatica['pecaIntermediariaContagem'] is none %}0{% else %}{{ morfologiaEspermatica['pecaIntermediariaContagem'] }}{% endif %}">
+        <br><br>
+        <label for="morfologia-caldaFortementeDobrada">Contagem de calda fortemente dobrada</label>
+        <input id="morfologia-caldaFortementeDobrada" name="caldaFortementeDobradaContagem" type="number" value="{% if morfologiaEspermatica['caldaFortementeDobradaContagem'] is none %}0{% else %}{{ morfologiaEspermatica['caldaFortementeDobradaContagem'] }}{% endif %}">
+        <br><br>
+        <label for="morfologia-caldaDobradaGotaDistal">Contagem de calda dobrada com gota distal</label>
+        <input id="morfologia-caldaDobradaGotaDistal" name="caldaDobradaGotaDistalContagem" type="number" value="{% if morfologiaEspermatica['caldaDobradaGotaDistalContagem'] is none %}0{% else %}{{ morfologiaEspermatica['caldaDobradaGotaDistalContagem'] }}{% endif %}">
+        <br><br>
+        <label for="morfologia-cabecaDelgada">Contagem de cabeça delgada</label>
+        <input id="morfologia-cabecaDelgada" name="cabecaDelgadaContagem" type="number" value="{% if morfologiaEspermatica['cabecaDelgadaContagem'] is none %}0{% else %}{{ morfologiaEspermatica['cabecaDelgadaContagem'] }}{% endif %}">
+        <br><br>
+        <label for="morfologia-cabecaGigante">Contagem de cabeça gigante</label>
+        <input id="morfologia-cabecaGigante" name="cabecaGiganteContagem" type="number" value="{% if morfologiaEspermatica['cabecaGiganteContagem'] is none %}0{% else %}{{ morfologiaEspermatica['cabecaGiganteContagem'] }}{% endif %}">
+        <br><br>
+        <label for="morfologia-cabecaIsoladaNormal">Contagem de cabeça isolada normal</label>
+        <input id="morfologia-cabecaIsoladaNormal" name="cabecaIsoladaNormalContagem" type="number" value="{% if morfologiaEspermatica['cabecaIsoladaNormalContagem'] is none %}0{% else %}{{ morfologiaEspermatica['cabecaIsoladaNormalContagem'] }}{% endif %}">
+        <br><br>
+        <label for="morfologia-abaxial">Contagem de abaxial</label>
+        <input id="morfologia-abaxial" name="abaxialContagem" type="number" value="{% if morfologiaEspermatica['abaxialContagem'] is none %}0{% else %}{{ morfologiaEspermatica['abaxialContagem'] }}{% endif %}">
+        <br><br>
+        <label for="morfologia-obliquo">Contagem de obliquo</label>
+        <input id="morfologia-obliquo" name="obliquoContagem" type="number" value="{% if morfologiaEspermatica['obliquoContagem'] is none %}0{% else %}{{ morfologiaEspermatica['obliquoContagem'] }}{% endif %}">
+        <br><br>
+        <label for="morfologia-gotaDistal">Contagem de gota distal</label>
+        <input id="morfologia-gotaDistal" name="gotaDistalContagem" type="number" value="{% if morfologiaEspermatica['gotaDistalContagem'] is none %}0{% else %}{{ morfologiaEspermatica['gotaDistalContagem'] }}{% endif %}">
+        <br><br>
+        
+        <label for="morfologia-aprovacao">Total Aprovado?</label>
+        <select name="totalAprovado" id="morfologia-aprovacao" size="1">
+            <option value="">Não selecionado</option>
+            <option value="SIM">SIM</option>
+            <option value="NÃO">NÃO</option>
+        </select>
+
+        <br><br><br><br>
+        <input type="submit" value="Editar Categoria">
+    </form>
+    <br><br>
+    <div class="flash-messages">
+    {% for message in get_flashed_messages() %}
+        <div class="flash">{{ message }}</div>
+    {% endfor %}
+    </div>
+    {% if morfologiaEspermatica['totalAprovado'] is not none %}
+    <script>
+        const aprovacaoSelect = document.getElementById("morfologia-aprovacao");
+        aprovacaoSelect.value = "{{ morfologiaEspermatica['totalAprovado'] }}";
+    </script>
+    {% endif %}
+</body>
+</html>

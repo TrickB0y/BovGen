@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ver Caracteristicas do sêmen</title>
+</head>
+<body>
+    <a href="{{ url_for('menu.index') }}">Inicio</a>
+    <br><br>
+    <button onclick="history.back()">Voltar</button>
+    <br><br><br><br>
+    <h4><a href="{{ url_for('semen.view', id=caracteristicas['semen_id']) }}">ID do sêmen: {{ caracteristicas['semen_id'] }}</a></h4>
+    <h4>Contaminacao: {{ caracteristicas['contaminacao'] }}</h4>
+    <h4>Quantidade: {{ caracteristicas['quantidade'] }}</h4>
+    <h4>Consistencia: {{ caracteristicas['consistencia'] }}</h4>
+    <h4>Peso: {{ caracteristicas['peso'] }}</h4>
+    <h4>Cor: {{ caracteristicas['cor'] }}</h4>
+    <h4>Anotacao: </h4>
+    <p>{{ caracteristicas['anotacao'] }}</p>
+    <br><br>
+    <a href="{{ url_for('semen.editCaracteristicas', id=caracteristicas['id']) }}">Editar</a>
+
+</body>
+</html>

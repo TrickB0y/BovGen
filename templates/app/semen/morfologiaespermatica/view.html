@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ver parametros do conjunto do sêmen</title>
+</head>
+<body>
+    <a href="{{ url_for('menu.index') }}">Inicio</a>
+    <br><br>
+    <button onclick="history.back()">Voltar</button>
+    <br><br><br><br>
+    <h4><a href="{{ url_for('semen.view', id=morfologiaEspermatica['semen_id']) }}">ID do sêmen: {{ morfologiaEspermatica['semen_id'] }}</a></h4>
+    <h4>Contagem de Normal: {{ morfologiaEspermatica['normalContagem'] }}</h4>
+    <h4>Contagem de Acromossoma: {{ morfologiaEspermatica['acromossomaContagem'] }}</h4>
+    <h4>Contagem de Gota Proximal: {{ morfologiaEspermatica['gotaProximalContagem'] }}</h4>
+    <h4>Contagem de Cabeça Pequena: {{ morfologiaEspermatica['cabecaPequenaContagem'] }}</h4>
+    <h4>Contagem de Calda Enrolada na Cabeça: {{ morfologiaEspermatica['caldaEnroladaCabecaContagem'] }}</h4>
+    <h4>Contagem de Cabeça Isolada Patologica: {{ morfologiaEspermatica['cabecaIsoladaPatologicaContagem'] }}</h4>
+    <h4>Contagem de Cabeça Estreita na Base: {{ morfologiaEspermatica['cabecaEstreitaBaseContagem'] }}</h4>
+    <h4>Contagem de Cabeça Piriforme: {{ morfologiaEspermatica['cabecaPiriformeContagem'] }}</h4>
+    <h4>Contagem de Cabeça Pequena Normal: {{ morfologiaEspermatica['cabecaPequenaNormalContagem'] }}</h4>
+    <h4>Contagem de Cabeça com Coloração Anormal: {{ morfologiaEspermatica['cabecaColoracaoAnormalContagem'] }}</h4>
+    <h4>Contagem de Cabeça com Contorno Anormal: {{ morfologiaEspermatica['cabecaContornoAnormalContagem'] }}</h4>
+    <h4>Contagem de Pouch Formation: {{ morfologiaEspermatica['pouchFormationContagem'] }}</h4>
+    <h4>Contagem de Cabeça Ulcerada: {{ morfologiaEspermatica['cabecaUlceradaContagem'] }}</h4>
+    <h4>Contagem de Calda Dobrada: {{ morfologiaEspermatica['caldaDobradaContagem'] }}</h4>
+    <h4>Contagem de Formas Teratogenica: {{ morfologiaEspermatica['formasTeratogenicaContagem'] }}</h4>
+    <h4>Contagem de Peça Intermediaria: {{ morfologiaEspermatica['pecaIntermediariaContagem'] }}</h4>
+    <h4>Contagem de Calda Fortemente Dobrada: {{ morfologiaEspermatica['caldaFortementeDobradaContagem'] }}</h4>
+    <h4>Contagem de Calda Dobrada com Gota Distal: {{ morfologiaEspermatica['caldaDobradaGotaDistalContagem'] }}</h4>
+    <h4>Contagem de Cabeça Delgada: {{ morfologiaEspermatica['cabecaDelgadaContagem'] }}</h4>
+    <h4>Contagem de Cabeça Gigante: {{ morfologiaEspermatica['cabecaGiganteContagem'] }}</h4>
+    <h4>Contagem de Cabeça Isolada Normal: {{ morfologiaEspermatica['cabecaIsoladaNormalContagem'] }}</h4>
+    <h4>Contagem de Abaxial: {{ morfologiaEspermatica['abaxialContagem'] }}</h4>
+    <h4>Contagem de Obliquo: {{ morfologiaEspermatica['obliquoContagem'] }}</h4>
+    <h4>Contagem de Gota Distal: {{ morfologiaEspermatica['gotaDistalContagem'] }}</h4>
+    <h4>Morfologia Aprovada?: {{ morfologiaEspermatica['totalAprovado'] }}</h4>
+    
+    <br><br>
+    <a href="{{ url_for('semen.editMorfologiaEspermatica', id=morfologiaEspermatica['id']) }}">Editar</a>
+
+</body>
+</html>

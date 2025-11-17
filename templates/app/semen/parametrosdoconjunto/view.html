@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ver parametros do conjunto do sêmen</title>
+</head>
+<body>
+    <a href="{{ url_for('menu.index') }}">Inicio</a>
+    <br><br>
+    <button onclick="history.back()">Voltar</button>
+    <br><br><br><br>
+    <h4><a href="{{ url_for('semen.view', id=parametrosDoConjunto['semen_id']) }}">ID do sêmen: {{ parametrosDoConjunto['semen_id'] }}</a></h4>
+    <h4>Motilidade %: {{ parametrosDoConjunto['motilidade'] }}</h4>
+    <h4>Motilidade Aprovação: {{ parametrosDoConjunto['motilidadeAprovacao'] }}</h4>
+    <h4>Vigor: {{ parametrosDoConjunto['vigor'] }}</h4>
+    <h4>Vigor Aprovação: {{ parametrosDoConjunto['vigorAprovacao'] }}</h4>
+    <h4>Concentração: {{ parametrosDoConjunto['concentracao'] }}</h4>
+    <h4>Concentração Aprovação: {{ parametrosDoConjunto['concentracaoAprovacao'] }}</h4>
+    <br><br>
+    <a href="{{ url_for('semen.editParametrosDoConjunto', id=parametrosDoConjunto['id']) }}">Editar</a>
+
+</body>
+</html>

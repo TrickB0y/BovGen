@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ver todos os sêmens</title>
+</head>
+<body>
+    <a href="{{ url_for('menu.index') }}">Inicio</a>
+    <br><br>
+    <button onclick="history.back()">Voltar</button>
+    <br><br><br><br>
+    {% for semen in semens %}
+    <div>
+        <h4>ID: {{ semen['id'] }}</h4>
+        <h4>Nome do animal: {{ semen['animalNome'] }}</h4>
+        <h4>Data: {{ semen['data'] }}</h4>
+        <h4>Tipo de coleta: {{ semen['tipoNome'] }}</h4>
+        <a href="{{ url_for('semen.view', id = semen['id']) }}">Ver detalhes</a>
+    </div>
+    <br><br>
+    {% endfor %}
+</body>
+</html>
