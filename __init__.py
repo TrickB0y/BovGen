@@ -41,4 +41,7 @@ def create_app(test_config=None):
     from . import coleta
     app.register_blueprint(coleta.bp)
     
+    from . import semen
+    app.register_blueprint(semen.bp)
+    
     return app
