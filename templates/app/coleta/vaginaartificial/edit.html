@@ -27,9 +27,11 @@
         <div class="flash">{{ message }}</div>
     {% endfor %}
     </div>
+    {% if dadosColeta['vacaORmanequim'] != none %}
     <script>
         const vacaORmanequimSelect = document.getElementById("coletaDados-vacaORmanequim");
         vacaORmanequimSelect.value = "{{ dadosColeta['vacaORmanequim'] }}";
     </script>
+    {% endif %}
 </body>
 </html>
