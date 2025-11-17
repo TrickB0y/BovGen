@@ -7,6 +7,10 @@ DROP TABLE IF EXISTS Coletas;
 DROP TABLE IF EXISTS ColetasEletroEjaculador;
 DROP TABLE IF EXISTS ColetasVaginaArtificial;
 DROP TABLE IF EXISTS ColetasEstimulacaoManual;
+DROP TABLE IF EXISTS SemensCaracteristicas;
+DROP TABLE IF EXISTS SemensParametrosDoConjunto;
+DROP TABLE IF EXISTS SemensMorfologiaEspermatica;
+DROP TABLE IF EXISTS Semens;
 
 CREATE TABLE Users (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -68,7 +72,7 @@ CREATE TABLE Coletas (
 
 CREATE TABLE ColetasEletroEjaculador (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    coleta_id INTEGER NOT NULL,
+    coleta_id INTEGER NOT NULL UNIQUE,
     modo TEXT,
     intensidade TEXT,
     quantidadeEstimulos INTEGER,
@@ -77,7 +81,7 @@ CREATE TABLE ColetasEletroEjaculador (
 
 CREATE TABLE ColetasVaginaArtificial (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    coleta_id INTEGER NOT NULL,
+    coleta_id INTEGER NOT NULL UNIQUE,
     vacaORmanequim TEXT,
     vaca TEXT,
     FOREIGN KEY (coleta_id) REFERENCES Coleta(id)
@@ -85,7 +89,70 @@ CREATE TABLE ColetasVaginaArtificial (
 
 CREATE TABLE ColetasEstimulacaoManual (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    coleta_id INTEGER NOT NULL,
+    coleta_id INTEGER NOT NULL UNIQUE,
     tempoMinutos INTEGER,
     FOREIGN KEY (coleta_id) REFERENCES Coleta(id)
+);
+
+CREATE TABLE SemensCaracteristicas (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    semen_id INTEGER NOT NULL UNIQUE,
+    contaminacao TEXT,
+    quantidade INTEGER,
+    consistencia TEXT,
+    peso INTEGER,
+    cor TEXT,
+    anotacao TEXT,
+    FOREIGN KEY (semen_id) REFERENCES Semens(id)
+);
+
+CREATE TABLE SemensParametrosDoConjunto (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    semen_id INTEGER NOT NULL UNIQUE,
+    motilidade INTEGER,
+    motilidadeAprovacao TEXT,
+    vigor INTEGER,
+    vigorAprovacao TEXT,
+    concentracao INTEGER,
+    concentracaoAprovacao TEXT,
+    FOREIGN KEY (semen_id) REFERENCES Semens(id)
+);
+
+CREATE TABLE SemensMorfologiaEspermatica (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    semen_id INTEGER NOT NULL UNIQUE,
+    normalContagem INTEGER,
+    acromossomaContagem INTEGER,
+    gotaProximalContagem INTEGER,
+    cabecaPequenaContagem INTEGER,
+    caldaEnroladaCabecaContagem INTEGER,
+    cabecaIsoladaPatologicaContagem INTEGER,
+    cabecaEstreitaBaseContagem INTEGER,
+    cabecaPiriformeContagem INTEGER,
+    cabecaPequenaNormalContagem INTEGER,
+    cabecaColoracaoAnormalContagem INTEGER,
+    cabecaContornoAnormalContagem INTEGER,
+    pouchFormationContagem INTEGER,
+    cabecaUlceradaContagem INTEGER,
+    caldaDobradaContagem INTEGER,
+    formasTeratogenicaContagem INTEGER,
+    pecaIntermediariaContagem INTEGER,
+    caldaFortementeDobradaContagem INTEGER,
+    caldaDobradaGotaDistalContagem INTEGER,
+    cabecaDelgadaContagem INTEGER,
+    cabecaGiganteContagem INTEGER,
+    cabecaIsoladaNormalContagem INTEGER,
+    abaxialContagem INTEGER,
+    obliquoContagem INTEGER,
+    gotaDistalContagem INTEGER,
+    totalAprovado TEXT,
+    FOREIGN KEY (semen_id) REFERENCES Semens(id)
+);
+
+CREATE TABLE Semens (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    coleta_id INTEGER NOT NULL UNIQUE,
+    semenCaracteristicas_id INTEGER UNIQUE,
+    semenParametrosDoConjunto_id INTEGER UNIQUE,
+    semenMorfologiaEspermatica_id INTEGER UNIQUE
 );
