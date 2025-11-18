@@ -11,6 +11,10 @@ DROP TABLE IF EXISTS SemensCaracteristicas;
 DROP TABLE IF EXISTS SemensParametrosDoConjunto;
 DROP TABLE IF EXISTS SemensMorfologiaEspermatica;
 DROP TABLE IF EXISTS Semens;
+DROP TABLE IF EXISTS Botijoes;
+DROP TABLE IF EXISTS Canecos;
+DROP TABLE IF EXISTS Racks;
+
 
 CREATE TABLE Users (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -154,5 +158,93 @@ CREATE TABLE Semens (
     coleta_id INTEGER NOT NULL UNIQUE,
     semenCaracteristicas_id INTEGER UNIQUE,
     semenParametrosDoConjunto_id INTEGER UNIQUE,
-    semenMorfologiaEspermatica_id INTEGER UNIQUE
+    semenMorfologiaEspermatica_id INTEGER UNIQUE,
+    FOREIGN KEY (semenCaracteristicas_id) REFERENCES SemensCaracteristicas(id),
+    FOREIGN KEY (semenParametrosDoConjunto_id) REFERENCES SemensParametrosDoConjunto(id),
+    FOREIGN KEY (semenMorfologiaEspermatica_id) REFERENCES SemensMorfologiaEspermatica(id)
 );
+
+CREATE TABLE Botijoes (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    nome TEXT NOT NULL,
+    caneco1_id INTEGER UNIQUE,
+    caneco2_id INTEGER UNIQUE,
+    caneco3_id INTEGER UNIQUE,
+    caneco4_id INTEGER UNIQUE,
+    caneco5_id INTEGER UNIQUE,
+    caneco6_id INTEGER UNIQUE,
+    FOREIGN KEY (caneco1_id) REFERENCES Canecos(id),
+    FOREIGN KEY (caneco2_id) REFERENCES Canecos(id),
+    FOREIGN KEY (caneco3_id) REFERENCES Canecos(id),
+    FOREIGN KEY (caneco4_id) REFERENCES Canecos(id),
+    FOREIGN KEY (caneco5_id) REFERENCES Canecos(id),
+    FOREIGN KEY (caneco6_id) REFERENCES Canecos(id)
+);
+
+CREATE TABLE Canecos (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    botijao_id INTEGER NOT NULL,
+    cor TEXT NOT NULL,
+    FOREIGN KEY (botijao_id) REFERENCES Botijoes(id)
+);
+
+CREATE TABLE Racks (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    nome TEXT NOT NULL,
+    botijao_id INTEGER NOT NULL,
+    caneco_id INTEGER NOT NULL,
+    semen_id INTEGER NOT NULL,
+    quantidade INTEGER,
+    anotacao TEXT
+);
+
+INSERT INTO Botijoes(nome) 
+VALUES 
+('Congelamento'),
+('Aulas e projeto de pesquisa'),
+('Sêmem para inseminação e produção de embrião'),
+('semem para comercialização');
+
+INSERT INTO Canecos(botijao_id, cor)
+VALUES
+(1,'Amarelo'),
+(1,'Azul'),
+(1,'Branco'),
+(1,'Vermelho'),
+(1,'Verde'),
+(1,'Preto');
+
+UPDATE Botijoes SET caneco1_id = 1, caneco2_id = 2, caneco3_id = 3, caneco4_id = 4, caneco5_id = 5, caneco6_id = 6 WHERE id = 1;
+
+INSERT INTO Canecos(botijao_id, cor)
+VALUES
+(2,'Amarelo'),
+(2,'Azul'),
+(2,'Branco'),
+(2,'Vermelho'),
+(2,'Verde'),
+(2,'Preto');
+
+UPDATE Botijoes SET caneco1_id = 7, caneco2_id = 8, caneco3_id = 9, caneco4_id = 10, caneco5_id = 11, caneco6_id = 12 WHERE id = 2;
+
+INSERT INTO Canecos(botijao_id, cor)
+VALUES
+(3,'Amarelo'),
+(3,'Azul'),
+(3,'Branco'),
+(3,'Vermelho'),
+(3,'Verde'),
+(3,'Preto');
+
+UPDATE Botijoes SET caneco1_id = 13, caneco2_id = 14, caneco3_id = 15, caneco4_id = 16, caneco5_id = 17, caneco6_id = 18 WHERE id = 3;
+
+INSERT INTO Canecos(botijao_id, cor)
+VALUES
+(4,'Amarelo'),
+(4,'Azul'),
+(4,'Branco'),
+(4,'Vermelho'),
+(4,'Verde'),
+(4,'Preto');
+
+UPDATE Botijoes SET caneco1_id = 19, caneco2_id = 20, caneco3_id = 21, caneco4_id = 22, caneco5_id = 23, caneco6_id = 24 WHERE id = 4;
