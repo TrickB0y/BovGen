@@ -44,4 +44,7 @@ def create_app(test_config=None):
     from . import semen
     app.register_blueprint(semen.bp)
     
+    from . import botijoes
+    app.register_blueprint(botijoes.bp)
+    
     return app
