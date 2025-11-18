@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deletar Rack</title>
+</head>
+<body>
+    <form method="post">
+        <h2>Tem certeza que quer deletar esta rack?</h2>
+        <br>
+        <p>Digite sua senha para confirmar</p>
+        <br><br><br>
+        <label for="password">Senha</label>
+        <input id="password" type="password" name="password">
+        <input type="submit" value="Deletar Rack">
+        <br>
+        <div class="flash-messages">
+        {% for message in get_flashed_messages() %}
+            <div class="flash">{{ message }}</div>
+        {% endfor %}
+        </div>
+    </form>
+</body>
+</html>

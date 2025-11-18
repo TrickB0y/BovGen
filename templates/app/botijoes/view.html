@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ver botijão</title>
+</head>
+<body>
+    <a href="{{ url_for('menu.index') }}">Inicio</a>
+    <br><br>
+    <button onclick="history.back()">Voltar</button>
+    <br><br>
+        <h1>ID: {{ botijao['id'] }}</h1>
+        <h1>Botijão de: {{ botijao['nome'] }}</h1>
+        <br><br><br><br>
+        <div>
+            <h2>Caneco 1</h2>
+            <h3>Cor: Amarela</h3>
+            <h3>Racks:</h3>
+            <br><br>
+            <a href="{{url_for('botijoes.addRack', id=caneco1['id'])}}">Adicionar Rack</a>
+            <br><br>
+            <div>
+                {% for rack in racks_caneco1 %}
+                <div>
+                    <p>Nome: {{rack['nome']}}</p>
+                    <p>ID: {{rack['id']}}</p>
+                    <p>Nome do animal: {{rack['animalNome']}}</p>
+                    <p>ID do animal: {{rack['animalID']}}</p>
+                    <p>Semen contido: {{rack['semen_id']}} <a href="{{url_for('semen.view', id=rack['semen_id'])}}">Ir Ver</a></p>
+                    <p>Quantidade de amostras: {{rack['quantidade']}}</p>
+                    <p>Anotações:</p>
+                    <p>
+                        {{rack['anotacao']}}
+                    </p>
+                    <br><br>
+                    <a href="{{url_for('botijoes.editRack', id=rack['id'])}}">Editar Rack</a>
+                    <br><br>
+                    <a href="{{url_for('botijoes.deleteRack', id=rack['id'])}}">Apagar Rack</a>
+                    <br><br>
+                    <br><br>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <br><br>
+        <br><br>
+
+        <div>
+            <h2>Caneco 2</h2>
+            <h3>Cor: Azul</h3>
+            <h3>Racks:</h3>
+            <br><br>
+            <a href="{{url_for('botijoes.addRack', id=caneco2['id'])}}">Adicionar Rack</a>
+            <br><br>
+            <div>
+                {% for rack in racks_caneco2 %}
+                <div>
+                    <p>Nome: {{rack['nome']}}</p>
+                    <p>ID: {{rack['id']}}</p>
+                    <p>Nome do animal: {{rack['animalNome']}}</p>
+                    <p>ID do animal: {{rack['animalID']}}</p>
+                    <p>Semen contido: {{rack['semen_id']}} <a href="{{url_for('semen.view', id=rack['semen_id'])}}">Ir Ver</a></p>
+                    <p>Quantidade de amostras: {{rack['quantidade']}}</p>
+                    <p>Anotações:</p>
+                    <p>
+                        {{rack['anotacao']}}
+                    </p>
+                    <br><br>
+                    <a href="{{url_for('botijoes.editRack', id=rack['id'])}}">Editar Rack</a>
+                    <br><br>
+                    <a href="{{url_for('botijoes.deleteRack', id=rack['id'])}}">Apagar Rack</a>
+                    <br><br>
+                    <br><br>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        
+        <br><br>
+        <br><br>
+
+        <div>
+            <h2>Caneco 3</h2>
+            <h3>Cor: Branco</h3>
+            <h3>Racks:</h3>
+            <br><br>
+            <a href="{{url_for('botijoes.addRack', id=caneco3['id'])}}">Adicionar Rack</a>
+            <br><br>
+            <div>
+                {% for rack in racks_caneco3 %}
+                <div>
+                    <p>Nome: {{rack['nome']}}</p>
+                    <p>ID: {{rack['id']}}</p>
+                    <p>Nome do animal: {{rack['animalNome']}}</p>
+                    <p>ID do animal: {{rack['animalID']}}</p>
+                    <p>Semen contido: {{rack['semen_id']}} <a href="{{url_for('semen.view', id=rack['semen_id'])}}">Ir Ver</a></p>
+                    <p>Quantidade de amostras: {{rack['quantidade']}}</p>
+                    <p>Anotações:</p>
+                    <p>
+                        {{rack['anotacao']}}
+                    </p>
+                    <br><br>
+                    <a href="{{url_for('botijoes.editRack', id=rack['id'])}}">Editar Rack</a>
+                    <br><br>
+                    <a href="{{url_for('botijoes.deleteRack', id=rack['id'])}}">Apagar Rack</a>
+                    <br><br>
+                    <br><br>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        
+        <br><br>
+        <br><br>
+
+        <div>
+            <h2>Caneco 4</h2>
+            <h3>Cor: Vermelho</h3>
+            <h3>Racks:</h3>
+            <br><br>
+            <a href="{{url_for('botijoes.addRack', id=caneco4['id'])}}">Adicionar Rack</a>
+            <br><br>
+            <div>
+                {% for rack in racks_caneco4 %}
+                <div>
+                    <p>Nome: {{rack['nome']}}</p>
+                    <p>ID: {{rack['id']}}</p>
+                    <p>Nome do animal: {{rack['animalNome']}}</p>
+                    <p>ID do animal: {{rack['animalID']}}</p>
+                    <p>Semen contido: {{rack['semen_id']}} <a href="{{url_for('semen.view', id=rack['semen_id'])}}">Ir Ver</a></p>
+                    <p>Quantidade de amostras: {{rack['quantidade']}}</p>
+                    <p>Anotações:</p>
+                    <p>
+                        {{rack['anotacao']}}
+                    </p>
+                    <br><br>
+                    <a href="{{url_for('botijoes.editRack', id=rack['id'])}}">Editar Rack</a>
+                    <br><br>
+                    <a href="{{url_for('botijoes.deleteRack', id=rack['id'])}}">Apagar Rack</a>
+                    <br><br>
+                    <br><br>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        
+        <br><br>
+        <br><br>
+
+        <div>
+            <h2>Caneco 5</h2>
+            <h3>Cor: Verde</h3>
+            <h3>Racks:</h3>
+            <br><br>
+            <a href="{{url_for('botijoes.addRack', id=caneco5['id'])}}">Adicionar Rack</a>
+            <br><br>
+            <div>
+                {% for rack in racks_caneco5 %}
+                <div>
+                    <p>Nome: {{rack['nome']}}</p>
+                    <p>ID: {{rack['id']}}</p>
+                    <p>Nome do animal: {{rack['animalNome']}}</p>
+                    <p>ID do animal: {{rack['animalID']}}</p>
+                    <p>Semen contido: {{rack['semen_id']}} <a href="{{url_for('semen.view', id=rack['semen_id'])}}">Ir Ver</a></p>
+                    <p>Quantidade de amostras: {{rack['quantidade']}}</p>
+                    <p>Anotações:</p>
+                    <p>
+                        {{rack['anotacao']}}
+                    </p>
+                    <br><br>
+                    <a href="{{url_for('botijoes.editRack', id=rack['id'])}}">Editar Rack</a>
+                    <br><br>
+                    <a href="{{url_for('botijoes.deleteRack', id=rack['id'])}}">Apagar Rack</a>
+                    <br><br>
+                    <br><br>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        
+        <br><br>
+        <br><br>
+
+        <div>
+            <h2>Caneco 6</h2>
+            <h3>Cor: Preto</h3>
+            <h3>Racks:</h3>
+            <br><br>
+            <a href="{{url_for('botijoes.addRack', id=caneco6['id'])}}">Adicionar Rack</a>
+            <br><br>
+            <div>
+                {% for rack in racks_caneco6 %}
+                <div>
+                    <p>Nome: {{rack['nome']}}</p>
+                    <p>ID: {{rack['id']}}</p>
+                    <p>Nome do animal: {{rack['animalNome']}}</p>
+                    <p>ID do animal: {{rack['animalID']}}</p>
+                    <p>Semen contido: {{rack['semen_id']}} <a href="{{url_for('semen.view', id=rack['semen_id'])}}">Ir Ver</a></p>
+                    <p>Quantidade de amostras: {{rack['quantidade']}}</p>
+                    <p>Anotações:</p>
+                    <p>
+                        {{rack['anotacao']}}
+                    </p>
+                    <br><br>
+                    <a href="{{url_for('botijoes.editRack', id=rack['id'])}}">Editar Rack</a>
+                    <br><br>
+                    <a href="{{url_for('botijoes.deleteRack', id=rack['id'])}}">Apagar Rack</a>
+                    <br><br>
+                    <br><br>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    <br>
+</body>
+</html>

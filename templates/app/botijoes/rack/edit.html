@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Rack</title>
+</head>
+<body>
+    <a href="{{ url_for('menu.index') }}">Inicio</a>
+    <br><br>
+    <form method="post">
+        <label for="rack-nome">Nome do Rack</label>
+        <input id="rack-nome" name="nome" type="text" value="{{rack['nome']}}">
+        <br><br>
+        <select name="semen_id" id="rack-semen_id" size="1">
+            <option value="">
+                Não selecionado
+            </option>
+            {% for semen in semens %}
+            <option value="{{ semen['id'] }}">
+                ID: {{ semen['id'] }} | 
+                Animal: {{ semen['nomeAnimal'] }} | 
+                Data: {{ semen['data'] }} | 
+                Tipo: {{ semen['tipoColetaNome'] }}
+            </option>
+            {% endfor %}
+        </select>
+        <br><br>
+        <label for="rack-quantidade">Quantidade de paletas</label>
+        <input id="rack-quantidade" name="quantidade" type="number" value="{{rack['quantidade']}}">
+        <br><br>
+        <label for="rack-anotacao">Area de anotação</label>
+        <textarea name="anotacao" id="rack-anotacao">{{rack['anotacao']}}</textarea>
+        <br><br><br><br>
+        <input type="submit" value="Editar Rack">
+    </form>
+    <br><br>
+    <div class="flash-messages">
+    {% for message in get_flashed_messages() %}
+        <div class="flash">{{ message }}</div>
+    {% endfor %}
+    </div>
+    <script>
+        const semenSelect = document.getElementById("rack-semen_id");
+        semenSelect.value = "{{ rack['semen_id'] }}";
+    </script>
+</body>
+</html>

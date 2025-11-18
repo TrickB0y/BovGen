@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ver botijões</title>
+</head>
+<body>
+    <a href="{{ url_for('menu.index') }}">Inicio</a>
+    <br><br>
+    <button onclick="history.back()">Voltar</button>
+    <br><br>
+    {% for botijao in botijoes %}
+    <div>
+        <h4>ID: {{ botijao['id'] }}</h4>
+        <h4>Botijão de: {{ botijao['nome'] }}</h4>
+        <a href="{{ url_for('botijoes.view', id = botijao['id']) }}">Ver</a>
+    </div>
+    <br>
+    {% endfor %}
+</body>
+</html>
